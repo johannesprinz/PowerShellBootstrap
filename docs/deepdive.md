@@ -31,7 +31,7 @@ the default trusted PowerShellGet repository. In a security conscious environmen
 I suggest making this an internally controlled endpoint.
 
 ### default.ps1
-This defines the basic [top level orchestration](./docs/coreOrchestration.md) tasks, these are used as a local 
+This defines the basic [top level orchestration](./coreOrchestration.md) tasks, these are used as a local 
 implementation and most continues integration/deployment tools will exerciser these. 
 All bar the `Invoke-psake Get-Help` and `Invoke-psake Clean` orchestration 
 will call into their respective sub-orchestration.

@@ -31,6 +31,7 @@ Once set you should only have to modify the `task*.ps1` files and add/remove
 
 ## Link to further documentation
 - [Deep dive](./docs/deepdive.md) into how this project is wired up.
+- [Core orchestrations](./docs/coreOrchestration.md) explained.
 
 ## Useful links
 - [psake git](https://github.com/psake) PowerShell task orchestration framework
