@@ -57,11 +57,9 @@ by coming up with a private function naming convention.
 
 ### functions.ps1
 This sample function encompass many of the best practices I've stumbled across while
-authoring many PowerShell functions. **NOTE:** One important part missing is the 
-implementation of ShouldProcess or the -WhatIf flag. This should be implemented 
-wherever a script performs anything other than just a read operation. The 
-`Invoke-psake Build` task will run a [PowerShell linting tool](https://github.com/PowerShell/PSScriptAnalyzer) 
-across all PowerShell files in the **script** folder.
+authoring many PowerShell functions. The `Invoke-psake Build` task will run a 
+[PowerShell linting tool](https://github.com/PowerShell/PSScriptAnalyzer) across 
+all PowerShell files in the **script** folder.
 
 ### function.tests.ps1
 This is a sample Pester test testing the sample function above. Pester is so far the

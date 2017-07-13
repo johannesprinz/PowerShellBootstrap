@@ -33,12 +33,16 @@ function Format-HelloWorld {
     #>
 	[OutputType([String])]
     [CmdletBinding(
-        #ConfirmImpact=<String>,
         #DefaultParameterSetName=<String>,
         #HelpURI=<URI>,
         #SupportsPaging=<Boolean>,
-        #SupportsShouldProcess=<Boolean>,
-        #PositionalBinding=<Boolean> <# If true you wont need the Position parameter binding #>
+        #PositionalBinding=<Boolean> <# If true you wont need the Position parameter binding #>,
+        SupportsShouldProcess=$true,
+		ConfirmImpact="None" 
+		# High		This action is potentially highly "destructive" and should be confirmed by default unless otherwise specified.
+		# Medium	This action should be confirmed in most scenarios where confirmation is requested.
+		# Low		This action only needs to be confirmed when the user has requested that low-impact changes must be confirmed.
+		# None		There is never any need to confirm this action.
     )]
     param (
         #[parameter(
@@ -73,7 +77,9 @@ function Format-HelloWorld {
     	$date = Get-Date;
     } Process {
     	Write-Verbose -Message ($formats.Process -f $MyInvocation.MyCommand);
-    	return "Welcome to Hello World $Name on $date";
+    	if ($pscmdlet.ShouldProcess($Name)) {
+			return "Welcome to Hello World $Name on $date";
+		}
     } End {	
     	Write-Verbose -Message ($formats.End -f $MyInvocation.MyCommand);
     }
