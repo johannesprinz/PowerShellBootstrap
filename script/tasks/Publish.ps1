@@ -1,4 +1,4 @@
-Include ".\references.ps1"
+Include ".\..\references.ps1"
 
 properties { 
 	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "")]
@@ -7,10 +7,10 @@ properties {
 	}
 }
 
-Task Default -Depends Package
+Task Default -Depends Publish
 
 Task Clean { }
 
-Task Package {
+Task Publish {
 	Write-Verbose -Message $message.notImplemented;
 }

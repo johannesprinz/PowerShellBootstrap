@@ -1,4 +1,4 @@
-Include ".\references.ps1"
+Include ".\..\references.ps1"
 
 properties { }
 

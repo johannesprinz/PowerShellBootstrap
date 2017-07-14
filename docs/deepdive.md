@@ -11,7 +11,7 @@ In order they are invoked.
 2. [psake.ps1](#psake.ps1)
 3. [default.ps1](#default.ps1)
 4. [refrences.ps1](#refrences.ps1)
-5. [tasks*.ps1](#tasks.ps1)
+5. [tasks\\\*.ps1](#tasks)
 6. [moduleFile.psm1](#moduleFile.psm1)
 7. [functions.ps1](#functions.ps1)
 8. [function.tests.ps1](#function.tests.ps1)
@@ -42,7 +42,7 @@ modules found in the modules directory but this can be split out into several
 references and include only required modules. This is mainly used to load and 
 test all the modules like a compile-time check.
 
-### tasks*.ps1
+### tasks
 All the tasks[Specific].ps1 files describe all the sub orchestrations, some come 
 with a basic implementation and others are just not implemented yet. Either way 
 they should all be considered when putting together a 

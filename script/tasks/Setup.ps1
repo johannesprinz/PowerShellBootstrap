@@ -1,8 +1,8 @@
-Include ".\references.ps1"
+Include ".\..\references.ps1"
 
 properties {
 	$dir = @{
-		base =(Get-Item -Path $psake.build_script_dir).FullName;
+		base =(Get-Item -Path (Join-Path -Path $psake.build_script_dir -ChildPath "..")).FullName;
 		src = (Get-Item -Path '..\').FullName;
 	}
 	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "")]

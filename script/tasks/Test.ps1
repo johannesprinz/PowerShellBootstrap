@@ -1,9 +1,9 @@
-Include ".\references.ps1"
+Include ".\..\references.ps1"
 
 properties {
-	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "")]
-	$dir = @{
-		bin = Join-Path -Path $psake.build_script_dir -ChildPath "bin";
+	$dir = @{		
+		base =(Get-Item -Path (Join-Path -Path $psake.build_script_dir -ChildPath "..")).FullName;
+		bin = Join-Path -Path $dir.base -ChildPath "bin";
 	}
 }
 
@@ -16,5 +16,5 @@ Task Clean {
 Task Test-PowerShell {
 	$resultXml = Join-Path -Path $dir.bin -ChildPath 'PStestResult.xml';
 	New-Item -Path (Split-Path -Path $resultXml -Parent) -ItemType Directory -Force | Out-Null;
-	Invoke-Pester -OutputFile $resultXml -OutputFormat NUnitXml -Show Summary;
+	Invoke-Pester -Script $dir.base -OutputFile $resultXml -OutputFormat NUnitXml -Show Summary;
 }
