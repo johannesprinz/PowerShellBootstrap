@@ -32,16 +32,22 @@ re-created, as well as triggering the intent for orchestration creators to ensur
 they can roll back / undo anything they do.
 
 ## Setup
+[tasksSetup.ps1](../script/tasksSetup.ps1)
+
 The [psake.ps1](./deepdive.md#psake.ps1) file sets up some really basic dependencies,
 but if the solution requires some more intense one-off setup dependencies then this
 is the orchestration to work with. This can install tooling, other modules, certificates
 ans anything else required to author and run the scripts and orchestrations. 
 
 ## Build
+[tasksBuild.ps1](../script/tasksBuild.ps1)
+
 This is used to perform any linting and compile activities. Out of the box it just 
 runs the [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer).
 
 ## Test
+[tasksTest.ps1](../script/tasksTest.ps1)
+
 Ideally this task should appear multiple times in the orchestration pipleline as 
 there are multiple stages of tests. The most basic being Unit Tests. Out of the 
 box this invokes [pester](https://github.com/pester/Pester) which runs all the
@@ -49,17 +55,23 @@ PowerShell tests. Thats not to say you can't implement packing test, deployment
 test, integration tests etc. In fact you should.
 
 ## Package
+[tasksPackage.ps1](../script/tasksPackage.ps1)
+
 One solution may create 1 or more deployment packages. Such as an Phone APP, 
 web API and database package. This is where you can orchestrate all the packages
 being packed into their respective deployment assets, be it folders, zip files 
 or other.
 
 ## Publish
+[tasksPublish.ps1](../script/tasksPublish.ps1)
+
 This should push the packages to either the deployment targets or some packaging 
 store such as NuGet or any other packet manager.
 
 ## Deploy
-Deployment comes in many flavours. Here you can orchestrate the overall deployment.
+[tasksDeploy.ps1](../script/tasksDeploy.ps1)
+
+Deployment comes in many flavors. Here you can orchestrate the overall deployment.
 **Note** You can split your deployment orchestration to manage each package 
 independantly and each of these can be packaged with the respective package. Ensure
 all deployment dependencies are packed into each package.
