@@ -16,5 +16,5 @@ Task Clean {
 Task Test-PowerShell {
 	$resultXml = Join-Path -Path $dir.bin -ChildPath 'PStestResult.xml';
 	New-Item -Path (Split-Path -Path $resultXml -Parent) -ItemType Directory -Force | Out-Null;
-	Invoke-Pester -OutputFile $resultXml -OutputFormat NUnitXml -Show Summary;
+	Invoke-Pester -OutputFile $resultXml -OutputFormat NUnitXml -Show Failed, Summary;
 }
