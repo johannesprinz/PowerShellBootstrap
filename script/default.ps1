@@ -28,7 +28,7 @@ Task Get-Help {
 	}
 }
 
-Task Clean -Description  {
+Task Clean {
 	$file.tasks | Foreach-Object {
 		Invoke-psake -buildFile $_ -taskList Clean -nologo -notr;
 	}

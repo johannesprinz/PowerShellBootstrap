@@ -9,6 +9,8 @@ function Test-Module($Name, $MinimumVersion){
 	});
 }
 $requiredModules = @(
+	@{Name="PackageManagement"; MinimumVersion="1.1.4.0";},
+	@{Name="PowerShellGet"; MinimumVersion="1.1.3.1";},
 	@{Name="psake"; MinimumVersion="4.6.0";},
 	@{Name="Pester"; MinimumVersion="4.0.3";},
 	@{Name="PSScriptAnalyzer"; MinimumVersion="1.15.0";}
@@ -27,7 +29,7 @@ if(-not(Test-Module -Name "PowerShellGet")) {
 	}
 	$requiredModules | ForEach-Object {
 		if(-not (Test-Module -Name $_.Name -MinimumVersion $_.MinimumVersion)){
-			Install-Module -Name $_.Name -MinimumVersion $_.MinimumVersion -Scope CurrentUser -Force -SkipPublisherCheck;
+			Install-Module -Name $_.Name -MinimumVersion $_.MinimumVersion -Scope CurrentUser -Force -SkipPublisherCheck -AllowClobber;
 		}
 	}
 	$requiredModules | ForEach-Object {
