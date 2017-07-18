@@ -21,8 +21,6 @@ function Load-DependantModules(){
 	}
 	if(-not (Test-Module -Name $dependantModules.PackageManagement.Name -MinimumVersion $dependantModules.PackageManagement.MinimumVersion)){
 			Install-Module -Name $dependantModules.PackageManagement.Name -MinimumVersion $dependantModules.PackageManagement.MinimumVersion -Scope CurrentUser -Force -SkipPublisherCheck -AllowClobber;
-			Remove-Module -Name $dependantModules.PackageManagement.Name;
-			Import-Module -Name  $dependantModules.PackageManagement.Name;
 	}
 	if(-not (Get-PackageProvider -Name NuGet)){
 		Install-PackageProvider -Name Nuget
