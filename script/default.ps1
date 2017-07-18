@@ -1,11 +1,15 @@
 properties {
-	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "")]
 	$dir = @{
 		base =(Get-Item -Path $psake.build_script_dir).FullName;
 		src = (Get-Item -Path '..\').FullName;
 	}
 	$file = @{
 		tasks = Get-ChildItem -Path (Join-Path -Path $dir.base -ChildPath "tasks") -Filter *.ps1;
+		readme = Join-Path -Path $dir.src -ChildPath "README.md"
+	}
+	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "")]
+	$message = @{
+		readme = "README can be found here $($file.readme)"		
 	}
 }
 
@@ -13,7 +17,7 @@ Task Default -Depends Get-Help
 
 Task Get-Help {
 	if(Test-Path -Path ..\README.md) {
-		Write-Verbose -Message "README can be found here $($dir.src)\README.md" -Verbose
+		Write-Verbose -Message $message.readme -Verbose
 	}
 	Invoke-psake -docs -nologo
 	$file.tasks | Foreach-Object {
@@ -22,7 +26,7 @@ Task Get-Help {
 	}
 }
 
-Task Clean -Description "Cleans all build and packaging artifacts in the solution" {
+Task Clean {
 	$file.tasks | Foreach-Object {
 		Invoke-psake -buildFile $_.FullName -taskList Clean -nologo -notr;
 	}
