@@ -13,7 +13,7 @@ To get started run
 
 and explore all the tasks available. The first execution may prompt you to install 
 some prerequisite PowerShell tools and modules to ensure all other tasks are runnable. 
-To exercise the automation pipeline in it's entirety run `Invoke-paske Deploy`
+To exercise the automation pipeline in it's entirety run `Invoke-psake Deploy`
 
 ## To use this
 1. Launch `README.cmd`
