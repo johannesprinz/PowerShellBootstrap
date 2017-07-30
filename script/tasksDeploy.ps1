@@ -9,8 +9,6 @@ properties {
 
 Task Default -Depends Deploy
 
-Task Clean { }
-
 Task Deploy {
 	Write-Verbose -Message $message.notImplemented;
 }

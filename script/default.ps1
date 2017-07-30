@@ -6,7 +6,7 @@ properties {
 		src = (Get-Item -Path '..\').FullName;
 	}
 	$file = @{
-		tasks = Get-ChildItem -Path $dir.base -Filter tasks*.ps1;
+		tasks = Get-ChildItem -Path $dir.base -Filter tasks*.ps1 -Exclude tasksDeploy.ps1;
 		readme = Join-Path -Path $dir.src -ChildPath "README.md"
 	}
 	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "")]
@@ -30,6 +30,7 @@ Task Get-Help {
 
 Task Clean {
 	$file.tasks | Foreach-Object {
+		Write-Verbose -Message $_.FullName;
 		Invoke-psake -buildFile $_ -taskList Clean -nologo -notr;
 	}
 }
