@@ -2,9 +2,9 @@
 #Requires -Version 4
 
 function Test-Module($Name, $MinimumVersion){
-	$null -ne (Get-Module -ListAvailable -Name $Name | 
+	$null -ne (Get-Module -ListAvailable -Name $Name |
 	Where-Object {
-		 $null -eq $MinimumVersion -or 
+		 $null -eq $MinimumVersion -or
 		 [System.Version]::Parse($MinimumVersion) -le $_.Version
 	});
 }

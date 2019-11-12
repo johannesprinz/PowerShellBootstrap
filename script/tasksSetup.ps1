@@ -7,7 +7,7 @@ properties {
 	}
 	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "")]
 	$message = @{
-		setup = "Please refere to $(Join-Path -Path $dir.src -ChildPath README.md)"		
+		setup = "Please refere to $(Join-Path -Path $dir.src -ChildPath README.md)";
 	}
 }
 

@@ -11,7 +11,7 @@ properties {
 	}
 	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "")]
 	$message = @{
-		readme = "README can be found here $($file.readme)"		
+		readme = "README can be found here $($file.readme)";
 	}
 }
 
@@ -19,9 +19,9 @@ Task Default -Depends Get-Help
 
 Task Get-Help {
 	if(Test-Path -Path ..\README.md) {
-		Write-Verbose -Message $message.readme -Verbose
+		Write-Verbose -Message $message.readme -Verbose;
 	}
-	Invoke-psake -docs -nologo
+	Invoke-psake -docs -nologo;
 	$file.tasks | Foreach-Object {
 		Write-Verbose -Message $_.FullName -Verbose;
 		Invoke-psake -buildFile $_ -docs -nologo;

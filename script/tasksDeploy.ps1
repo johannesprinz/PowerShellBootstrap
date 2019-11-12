@@ -1,6 +1,6 @@
 Include ".\references.ps1"
 
-properties { 
+properties {
 	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "")]
 	$message = @{
 		notImplemented = 'This task has not been implemented yet'

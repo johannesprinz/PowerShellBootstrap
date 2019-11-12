@@ -12,8 +12,8 @@ function Format-HelloWorld {
 		What this does against
 
     .DESCRIPTION
-	    Full description
-	
+		Full description
+
     .PARAMETER Param1
         What's this input
 
@@ -29,7 +29,7 @@ function Format-HelloWorld {
     .EXAMPLE
         #Description of example
 	    Comandline version of example
-		
+
     #>
 	[OutputType([String])]
     [CmdletBinding(
@@ -37,8 +37,8 @@ function Format-HelloWorld {
         #HelpURI=<URI>,
         #SupportsPaging=<Boolean>,
         #PositionalBinding=<Boolean> <# If true you wont need the Position parameter binding #>,
-        SupportsShouldProcess=$true,
-		ConfirmImpact="None" 
+        SupportsShouldProcess,
+		ConfirmImpact="None"
 		# High		This action is potentially highly "destructive" and should be confirmed by default unless otherwise specified.
 		# Medium	This action should be confirmed in most scenarios where confirmation is requested.
 		# Low		This action only needs to be confirmed when the user has requested that low-impact changes must be confirmed.
@@ -80,7 +80,7 @@ function Format-HelloWorld {
     	if ($pscmdlet.ShouldProcess($Name)) {
 			return "Welcome to Hello World $Name on $date";
 		}
-    } End {	
+    } End {
     	Write-Verbose -Message ($formats.End -f $MyInvocation.MyCommand);
     }
 }

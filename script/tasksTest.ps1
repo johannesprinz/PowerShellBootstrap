@@ -9,7 +9,7 @@ properties {
 
 Task Default -Depends Test-PowerShell
 
-Task Clean { 
+Task Clean {
 	Remove-Item -Path $dir.bin -Recurse -Force -ErrorAction SilentlyContinue
 }
 

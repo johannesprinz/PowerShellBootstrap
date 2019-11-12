@@ -8,7 +8,7 @@ Describe "Format-HelloWorld" {
 	Context "Given a valid name" {
 		Mock Get-Date {return "05/22/2014 15:40:38"}
 		$result = Format-HelloWorld -Name "Bob"
-		
+
 		It "Calls Get-Date" {
 			Assert-VerifiableMocks
 		}
@@ -24,7 +24,7 @@ Describe "Format-HelloWorld" {
 	Context "Given a valid name is piped in" {
 		Mock Get-Date {return "05/22/2014 15:40:38"}
 		$result = "Bob" | Format-HelloWorld
-		
+
 		It "Calls Get-Date" {
 			Assert-VerifiableMocks
 		}
@@ -35,7 +35,7 @@ Describe "Format-HelloWorld" {
 	Context "Given multiple valid name are piped in" {
 		Mock Get-Date {return "05/22/2014 15:40:38"}
 		$result = "Bob", "Betty", "Charlie", "Charles" | Format-HelloWorld
-		
+
 		It "Calls Get-Date" {
 			Assert-VerifiableMocks
 		}
