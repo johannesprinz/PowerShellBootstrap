@@ -10,7 +10,7 @@ Describe "Format-HelloWorld" {
 		$result = Format-HelloWorld -Name "Bob"
 
 		It "Calls Get-Date" {
-			Assert-VerifiableMocks
+			Assert-VerifiableMock
 		}
 		It "Returns expected string format" {
 			$result | Should Be "Welcome to Hello World Bob on 05/22/2014 15:40:38"
@@ -26,7 +26,7 @@ Describe "Format-HelloWorld" {
 		$result = "Bob" | Format-HelloWorld
 
 		It "Calls Get-Date" {
-			Assert-VerifiableMocks
+			Assert-VerifiableMock
 		}
 		It "Returns expected string format" {
 			$result | Should Be "Welcome to Hello World Bob on 05/22/2014 15:40:38"
@@ -37,7 +37,7 @@ Describe "Format-HelloWorld" {
 		$result = "Bob", "Betty", "Charlie", "Charles" | Format-HelloWorld
 
 		It "Calls Get-Date" {
-			Assert-VerifiableMocks
+			Assert-VerifiableMock
 		}
 		It "Returns expected string format" {
 			$result | Should Be "Welcome to Hello World Bob on 05/22/2014 15:40:38", "Welcome to Hello World Betty on 05/22/2014 15:40:38","Welcome to Hello World Charlie on 05/22/2014 15:40:38","Welcome to Hello World Charles on 05/22/2014 15:40:38"
